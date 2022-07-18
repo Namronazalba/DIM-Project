@@ -1,0 +1,25 @@
+<h1>Hello Home</h1>
+
+  <% @posts.each do |post| %>
+  <div>
+    <b>email:</b>
+    <p><%= post.user.email %></p>
+  </div>
+  <div>
+    <b>title:</b>
+    <p><%= post.title %></p>
+  </div>
+
+  <div>
+    <b>content:</b>
+    <p><%= post.content %></p>
+  </div>
+
+  <div>
+    <b>address:</b>
+    <p><%= post.address %></p>
+  </div>
+
+  <br>
+  <hr>
+  <% end %>
