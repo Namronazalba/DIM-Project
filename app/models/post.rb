@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   validates_presence_of :address
 
   belongs_to :user
+  has_many :disasters
+  has_many :comments
 end

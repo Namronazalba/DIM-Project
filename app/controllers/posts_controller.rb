@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   def set_own_post
     @post = current_user.posts.find_by_id(params[:id])
     if @post.nil?
-      flash[:alert] = 'this post not belongs_to you or not exists'
+      flash[:alert] = 'this post not belongs to you or not exists'
       redirect_to posts_path
     end
   end

@@ -1,6 +1,6 @@
-<h1>Hello Home</h1>
+<h1>Disaster Information Table</h1>
 
-  <% @posts.each do |post| %>
+<% @posts.each do |post| %>
   <div>
     <b>email:</b>
     <p><%= post.user.email %></p>
@@ -19,7 +19,9 @@
     <b>address:</b>
     <p><%= post.address %></p>
   </div>
-
+  <div>
+    <p><b>Comments : </b><%= post.comments.count %></p>
+  </div>
   <br>
   <hr>
-  <% end %>
+<% end %>

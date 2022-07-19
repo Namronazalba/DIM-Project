@@ -4,5 +4,7 @@
   <li><%= @post.content %></li>
   <li><%= @post.address %></li>
 </ul>
+<%# content_for :page_title, @post.title %>
+
 <%= link_to 'index', posts_path %>
 <%= link_to 'edit', edit_post_path(@post) %>
