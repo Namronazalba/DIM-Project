@@ -39,7 +39,8 @@ class PostsController < ApplicationController
   def show; end
 
   def destroy
-    if @post.destroy
+    if @post.comments.size == 0
+      @post.destroy
       redirect_to posts_path
     end
   end
