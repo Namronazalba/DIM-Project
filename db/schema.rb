@@ -13,21 +13,20 @@
 ActiveRecord::Schema.define(version: 2022_07_19_055046) do
 
   create_table "comments", force: :cascade do |t|
-    t.string "title"
     t.string "content"
     t.integer "posts_id"
+    t.integer "users_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "post_id"
     t.index ["posts_id"], name: "index_comments_on_posts_id"
+    t.index ["users_id"], name: "index_comments_on_users_id"
   end
 
   create_table "disasters", force: :cascade do |t|
     t.string "disaster_type"
-    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_disasters_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -35,14 +34,17 @@ ActiveRecord::Schema.define(version: 2022_07_19_055046) do
     t.string "content"
     t.string "address"
     t.integer "user_id"
+    t.integer "disaster_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["disaster_id"], name: "index_posts_on_disaster_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "role", default: "user", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
