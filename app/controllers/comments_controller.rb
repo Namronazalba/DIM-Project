@@ -49,4 +49,12 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content)
   end
+
+  def set_own_comment
+    @comment = current_user.comments.find_by_id(params[:id])
+    if @comment.nil?
+      flash[:alert] = 'this post not belongs to you or not exists'
+      redirect_to posts_path
+    end
+  end
 end
