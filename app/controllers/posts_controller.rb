@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :home
   before_action :set_post, only: :show
   before_action :set_own_post, only: [:edit, :update, :destroy]
 
@@ -55,7 +55,8 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :address)
+    params.require(:post).permit(:title, :content, :address, :disaster_id)
+
   end
 
   def set_post
