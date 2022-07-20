@@ -31,7 +31,7 @@
         <button><%= link_to "show ", post_path(post) %></button>
         <button><%= link_to "edit ", edit_post_path(post) if post.user == current_user %></button>
           <%= form_for post, url: post_path(post), method: :delete do |f| %>
-            <%= f.submit 'delete', class="button" if post.user == current_user %>
+            <%= f.submit 'delete' if post.user == current_user %>
           <% end %>
     <% end %> <br><br>
 
