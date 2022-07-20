@@ -1,0 +1,14 @@
+<%= form_for @disaster, url:disaster_path(@disaster) , method: :patch do |f| %>
+  <% if @disaster.errors.any? %>
+    <% @disaster.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :disaster_type %>
+    <%= f.text_field :disaster_type, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

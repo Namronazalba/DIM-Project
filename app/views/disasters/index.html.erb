@@ -1,0 +1,9 @@
+<h1>Hello, World!</h1>
+<% @disaster.each do |a_disaster|%>
+  <div><%=a_disaster.disaster_type%></div>
+  <div><%=a_disaster.post.id%></div>
+  <%= link_to 'edit', edit_disaster_path(a_disaster)  %>
+  <%= link_to "show", disaster_path(a_disaster) %>
+<% end %>
+
+<%= link_to "new", new_disaster_path %>
