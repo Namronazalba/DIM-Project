@@ -1,5 +1,5 @@
 class DisastersController < ApplicationController
-
+  before_action :authenticate_user!
   def index
     @disaster = Disaster.all
   end
@@ -11,7 +11,6 @@ class DisastersController < ApplicationController
   def create
     @param = params.require(:disaster).permit(:disaster_type)
     @disaster = Disaster.new(@param)
-    # @post.post = Post.first
     if @disaster.save
       redirect_to disasters_path
     else

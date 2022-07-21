@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: :home
   before_action :set_post, only: :show
   before_action :set_own_post, only: [:edit, :update, :destroy]
-
+  before_action :validate_inspecting, only: [:edit, :update]
   def index
     @posts = Post.includes(:user)
   end
