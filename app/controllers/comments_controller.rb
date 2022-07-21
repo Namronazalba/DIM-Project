@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_post
-  before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :set_comment,:set_own_comment, only: [:edit, :update, :destroy]
 
   def index
     @comments = @post.comments
@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.post = @post
+    @comment.user = current_user
     if @comment.save
       redirect_to post_comments_path(@post)
     else
@@ -53,8 +54,8 @@ class CommentsController < ApplicationController
   def set_own_comment
     @comment = current_user.comments.find_by_id(params[:id])
     if @comment.nil?
-      flash[:alert] = 'this post not belongs to you or not exists'
-      redirect_to posts_path
+      flash[:alert] = 'this comment is not belongs to you or not exists'
+      redirect_to post_comments_path
     end
   end
 end
