@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post 'check'
     resources :comments
   end
+
   resources :disasters
 
 end
