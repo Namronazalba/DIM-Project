@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: :home
   before_action :set_post, only: :show
   before_action :set_own_post, only: [:edit, :update, :destroy]
-  before_action :validate_inspecting, only: [:edit, :update]
+
   def index
     @posts = Post.includes(:user)
   end
@@ -36,6 +36,7 @@ class PostsController < ApplicationController
     end
   end
 
+
   def show; end
 
   def destroy
@@ -56,8 +57,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :address, :disaster_id)
-
+    params.require(:post).permit(:title, :content, :address, :disaster_id, :image)
   end
 
   def set_post

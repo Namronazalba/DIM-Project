@@ -1,5 +1,6 @@
 <h1>Disaster Information Table</h1>
-
+<button><%= link_to 'login', new_user_session_path %></button>
+<button><%= link_to 'register', new_user_registration_path %></button>
 <% @posts.each do |post| %>
   <div>
     <b>email:</b>
@@ -19,7 +20,6 @@
     <b>address:</b>
     <p><%= post.address %></p>
   </div>
-
   <br>
   <hr>
 <% end %>

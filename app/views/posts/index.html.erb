@@ -5,30 +5,34 @@
 
 <% @posts.each do |post| %>
   <div>
-    <p><b>email:</b><%= post.user.email.capitalize %></p>
+    <p><b>Email:</b><%= post.user.email.capitalize %></p>
   </div>
 
   <div>
-    <p><b>disaster:</b><%= post.disaster.disaster_type %></p>
+    <p><b>Disaster:</b><%= post.disaster.disaster_type %></p>
   </div>
 
   <div>
-    <p><b>title:</b><%= post.title.capitalize %></p>
+    <p><b>Title:</b><%= post.title.capitalize %></p>
   </div>
 
   <div>
-    <p><b>content:</b><%= post.content.capitalize %></p>
+    <p><b>Content:</b><%= post.content.capitalize %></p>
   </div>
 
   <div>
-    <p><b>address:</b><%= post.address.capitalize %></p>
+    <p><b>Address:</b><%= post.address.capitalize %></p>
   </div>
+
   <div>
     <p><b>Comments : </b><%= post.comments.count %></p>
   </div>
+  <div>
+    <p><%= image_tag "http://localhost:3000/#{post.image.url}" if post.image? %></p>
+  </div>
     <button><%= link_to :comments, post_comments_path(post) %></button>
     <button><%= link_to "show ", post_path(post) %></button>
-    <button><%= link_to "edit ", edit_post_path(post) if post.user == current_user %></button>
+    <%= link_to "edit ", edit_post_path(post) if post.user == current_user %>
     <%= form_for post, url: post_path(post), method: :delete do |f| %>
       <%= f.submit 'delete' if post.user == current_user %>
     <% end %>
