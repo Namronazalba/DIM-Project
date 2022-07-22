@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user)
+    @domain = request.base_url
   end
 
   def home
@@ -12,6 +13,12 @@ class PostsController < ApplicationController
   end
   def new
     @post = Post.new
+  end
+
+  def redirect
+    @maigsing_url = params[:url_short]
+    @post = Post.find_by(url_short: @maigsing_url)
+    redirect_to post_path(@post)
   end
 
   def create

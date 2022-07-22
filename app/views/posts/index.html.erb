@@ -5,6 +5,10 @@
 
 <% @posts.each do |post| %>
   <div>
+    <p><%= image_tag "http://localhost:3000/#{post.image.url}" if post.image? %></p>
+  </div>
+
+  <div>
     <p><b>Email:</b><%= post.user.email.capitalize %></p>
   </div>
 
@@ -14,6 +18,10 @@
 
   <div>
     <p><b>Title:</b><%= post.title.capitalize %></p>
+  </div>
+
+  <div>
+    <p><b>Short url:</b><%= link_to "#{@domain}/#{post.url_short}", post.url_short %></p>
   </div>
 
   <div>
@@ -27,9 +35,7 @@
   <div>
     <p><b>Comments : </b><%= post.comments.count %></p>
   </div>
-  <div>
-    <p><%= image_tag "http://localhost:3000/#{post.image.url}" if post.image? %></p>
-  </div>
+
     <button><%= link_to :comments, post_comments_path(post) %></button>
     <button><%= link_to "show ", post_path(post) %></button>
     <%= link_to "edit ", edit_post_path(post) if post.user == current_user %>
@@ -37,7 +43,6 @@
       <%= f.submit 'delete' if post.user == current_user %>
     <% end %>
   <% end %>
-<br><br>
-
 <button><%= link_to 'New', new_post_path, class: 'btn btn-success mb-4' %></button>
+
 
