@@ -25,6 +25,9 @@
     <b>address:</b>
     <p><%= post.address %></p>
   </div>
-  <br>
-  <hr>
+
+  <div>
+    <p><b><%= Post.human_attribute_name(:comments) %> : </b><%= post.comments.count %></p>
+  </div>
+
 <% end %>

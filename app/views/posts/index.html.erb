@@ -47,4 +47,6 @@
       <%= f.submit 'delete' if post.user == current_user %>
     <% end %>
   <% end %>
+
+<%= link_to 'New', new_post_path, class: 'btn btn-success mb-4' %>
 </div>
