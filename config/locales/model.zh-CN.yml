@@ -1,0 +1,15 @@
+zh-CN:
+  models:
+    post:
+      one: 文章
+      other: 多篇文章
+  activerecord:
+    attributes:
+      post:
+        email: 电子邮件
+        disaster: 灾难
+        title: 標題
+        short_url: 短网址
+        content: 內容
+        address: 地址
+        comments: 注释

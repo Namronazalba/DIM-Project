@@ -11,6 +11,10 @@
   </head>
 
   <body>
+  <br><br>
+  <%= link_to "EN", params.permit!.merge(locale: 'en') %>
+  <%= link_to "zh-CN", params.permit!.merge(locale: 'zh-CN') %>
+  <%= link_to "tl", params.permit!.merge(locale: 'tl') %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>

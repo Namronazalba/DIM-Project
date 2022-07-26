@@ -1,6 +1,6 @@
 <p style="text-align: right"><%= link_to "LOGOUT", destroy_user_session_path, :method => :delete %></p>
 
-
+<h1><%= t("post_list") %></h1>
 <h1>Disaster Information Blog</h1>
 
 <% @posts.each do |post| %>
@@ -9,31 +9,31 @@
   </div>
 
   <div>
-    <p><b>Email:</b><%= post.user.email.capitalize %></p>
+    <p><b><%= Post.human_attribute_name(:email) %> : </b><%= post.user.email.capitalize %></p>
   </div>
 
   <div>
-    <p><b>Disaster:</b><%= post.disaster.disaster_type %></p>
+    <p><b><%= Post.human_attribute_name(:disaster) %> : </b><%= post.disaster.disaster_type %></p>
   </div>
 
   <div>
-    <p><b>Title:</b><%= post.title.capitalize %></p>
+    <p><b><%= Post.human_attribute_name(:title) %> :</b><%= post.title.capitalize %></p>
   </div>
 
   <div>
-    <p><b>Short url:</b><%= link_to "#{@domain}/#{post.url_short}", post.url_short %></p>
+    <p><b><%= Post.human_attribute_name(:short_url) %> :</b><%= link_to "#{@domain}/#{post.url_short}", post.url_short %></p>
   </div>
 
   <div>
-    <p><b>Content:</b><%= post.content.capitalize %></p>
+    <p><b><%= Post.human_attribute_name(:content) %> :</b><%= post.content.capitalize %></p>
   </div>
 
   <div>
-    <p><b>Address:</b><%= post.address.capitalize %></p>
+    <p><b><%= Post.human_attribute_name(:address) %> :</b><%= post.address.capitalize %></p>
   </div>
 
   <div>
-    <p><b>Comments : </b><%= post.comments.count %></p>
+    <p><b><%= Post.human_attribute_name(:comments) %> : </b><%= post.comments.count %></p>
   </div>
 
     <button><%= link_to :comments, post_comments_path(post) %></button>
@@ -43,6 +43,4 @@
       <%= f.submit 'delete' if post.user == current_user %>
     <% end %>
   <% end %>
-<button><%= link_to 'New', new_post_path, class: 'btn btn-success mb-4' %></button>
-
-
+<button><%= link_to 'New', new_post_path%></button>

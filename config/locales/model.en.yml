@@ -1,0 +1,15 @@
+en:
+  models:
+    post:
+      one: Post
+      other: Posts
+  activerecord:
+    attributes:
+      post:
+        email: Email
+        disaster: Disaster
+        title: Title
+        short_url: Short URL
+        content: Content
+        address: Address
+        comments: Comments

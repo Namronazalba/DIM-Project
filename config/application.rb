@@ -29,10 +29,16 @@ module App
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
+
+    config.i18n.default_locale = "en"
+    config.i18n.available_locales = [:en, "zh-CN","tl"]
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
+    # config.i18n.default_locale = "zh-CN"
+    # config.i18n.available_locales = :en, "zh-CN"
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.hosts.clear
+
   end
 end
