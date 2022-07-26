@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :disasters
 
   get '/:url_short' => 'posts#redirect'
+
 end

@@ -2,6 +2,11 @@
 <button><%= link_to 'login', new_user_session_path %></button>
 <button><%= link_to 'register', new_user_registration_path %></button>
 <% @posts.each do |post| %>
+
+  <div>
+    <p><%= image_tag "http://localhost:3000/#{post.image.url}" if post.image? %></p>
+  </div>
+
   <div>
     <b>email:</b>
     <p><%= post.user.email %></p>

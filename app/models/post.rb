@@ -12,9 +12,9 @@ class Post < ApplicationRecord
 
   def generate_short_url
     loop do
-      @short = rand(0..9999).to_s.rjust(4,'0')
-      break unless Post.exists?(url_short: @short)
+      @surl = rand(1..9998).to_s.rjust(4,'0')
+      break unless Post.exists?(url_short: @surl)
     end
-    self.url_short = @short
+    self.url_short = @surl
   end
 end

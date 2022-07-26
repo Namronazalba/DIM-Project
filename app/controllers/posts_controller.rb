@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def home
     @posts = Post.includes(:user)
   end
+
   def new
     @post = Post.new
   end
@@ -43,7 +44,6 @@ class PostsController < ApplicationController
     end
   end
 
-
   def show; end
 
   def destroy
@@ -70,4 +70,5 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
+
 end
